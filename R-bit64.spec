@@ -4,20 +4,23 @@
 #
 Name     : R-bit64
 Version  : 0.9.7
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/bit64_0.9-7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/bit64_0.9-7.tar.gz
 Summary  : A S3 Class for Vectors of 64bit Integers
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: R-bit64-lib
+Requires: R-bit64-lib = %{version}-%{release}
 Requires: R-bit
 BuildRequires : R-bit
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
-Package 'bit64' provides serializable S3 atomic 64bit (signed) integers. 
- These are useful for handling database keys and exact counting in +-2^63.
+Naming conventions
+==================
+R/*.R 		R   files (including .Rd comments)
+src/*.c		C   files
+man/*.Rd	Automatically generated Rd. files, do not modify
 
 %package lib
 Summary: lib components for the R-bit64 package.
@@ -35,11 +38,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523291580
+export SOURCE_DATE_EPOCH=1552720498
 
 %install
+export SOURCE_DATE_EPOCH=1552720498
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523291580
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -74,8 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library bit64|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  bit64 || :
 
 
 %files
@@ -109,7 +111,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/bit64/help/paths.rds
 /usr/lib64/R/library/bit64/html/00Index.html
 /usr/lib64/R/library/bit64/html/R.css
-/usr/lib64/R/library/bit64/libs/symbols.rds
 
 %files lib
 %defattr(-,root,root,-)
