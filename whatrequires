@@ -1,4 +1,4 @@
 # This file contains recursive sources that require this package
 R-RSQLite
-R-bit
 R-data.table
+R-survey
