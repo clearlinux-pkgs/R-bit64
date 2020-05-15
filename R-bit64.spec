@@ -4,7 +4,7 @@
 #
 Name     : R-bit64
 Version  : 0.9.7
-Release  : 25
+Release  : 26
 URL      : https://cran.r-project.org/src/contrib/bit64_0.9-7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/bit64_0.9-7.tar.gz
 Summary  : A S3 Class for Vectors of 64bit Integers
@@ -14,14 +14,10 @@ Requires: R-bit64-lib = %{version}-%{release}
 Requires: R-bit
 BuildRequires : R-bit
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-Naming conventions
-==================
-R/*.R 		R   files (including .Rd comments)
-src/*.c		C   files
-man/*.Rd	Automatically generated Rd. files, do not modify
+Package 'bit64' provides serializable S3 atomic 64bit (signed) integers. 
+ These are useful for handling database keys and exact counting in +-2^63.
 
 %package lib
 Summary: lib components for the R-bit64 package.
@@ -33,21 +29,22 @@ lib components for the R-bit64 package.
 
 %prep
 %setup -q -c -n bit64
+cd %{_builddir}/bit64
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571803692
+export SOURCE_DATE_EPOCH=1589566807
 
 %install
-export SOURCE_DATE_EPOCH=1571803692
+export SOURCE_DATE_EPOCH=1589566807
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
