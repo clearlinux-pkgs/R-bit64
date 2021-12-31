@@ -4,7 +4,7 @@
 #
 Name     : R-bit64
 Version  : 4.0.5
-Release  : 43
+Release  : 44
 URL      : https://cran.r-project.org/src/contrib/bit64_4.0.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/bit64_4.0.5.tar.gz
 Summary  : A S3 Class for Vectors of 64bit Integers
@@ -36,10 +36,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1640899908
+export SOURCE_DATE_EPOCH=1640981819
 
 %install
-export SOURCE_DATE_EPOCH=1640899908
+export SOURCE_DATE_EPOCH=1640981819
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
