@@ -7,7 +7,7 @@
 #
 Name     : R-bit64
 Version  : 4.5.2
-Release  : 55
+Release  : 56
 URL      : https://cran.r-project.org/src/contrib/bit64_4.5.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/bit64_4.5.2.tar.gz
 Summary  : A S3 Class for Vectors of 64bit Integers
