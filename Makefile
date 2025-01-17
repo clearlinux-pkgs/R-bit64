@@ -1,5 +1,5 @@
 PKG_NAME := R-bit64
-URL = https://cran.r-project.org/src/contrib/bit64_4.5.2.tar.gz
+URL = https://ftp.osuosl.org/pub/cran/src/contrib/bit64_4.6.0-1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
